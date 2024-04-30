@@ -1,0 +1,22 @@
+<!-- bottom_sheet_carpool_requests.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/bottom_sheet_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Carpool Requests"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:padding="16dp"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_carpool_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"/>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#73B1AA"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/textViewCafeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="THE CAFE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="105sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/textViewReviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LEAVE A REVIEW"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/textViewCafeTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewReviewTitle"
+        android:layout_marginTop="16dp"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_centerHorizontal="true"
+        android:progressTint="#FFD700" />
+
+
+    <EditText
+        android:id="@+id/editTextComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingBar"
+        android:layout_marginTop="16dp"
+        android:gravity="top|start"
+        android:hint="Write your comments here..."
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_button"/>
+
+
+
+    <Button
+        android:id="@+id/buttonSubmitReview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Submit Review"
+        android:textSize="18sp"
+        android:textColor="#73B1AA"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/editTextComments"
+        android:layout_marginTop="16dp"/>
+</RelativeLayout>

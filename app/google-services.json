@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "583547153749",
+    "project_id": "dmuberapp",
+    "storage_bucket": "dmuberapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583547153749:android:166ebfafcf2c648544d3dc",
+        "android_client_info": {
+          "package_name": "com.example.dmuber"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcKM3QI06LpLJz2bslIaFitu6eC-q6tek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

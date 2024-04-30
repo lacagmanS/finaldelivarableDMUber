@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#73B1AA">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="THE CAFE"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="105sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextEmailSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_textbox"
+        android:hint="Email Address"
+        android:inputType="text"
+        android:padding="16dp"
+        android:singleLine="true"
+        android:textColor="#73B1AA"
+        android:textColorHint="#CCCCCC" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmailSignIn"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_textbox"
+        android:textColor="#73B1AA"
+        android:padding="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginTop="32dp"
+        android:text="Sign In"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_button"
+        android:textColor="#73B1AA"
+        android:padding="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Don't have an account? Sign Up"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="italic"/>
+</RelativeLayout>

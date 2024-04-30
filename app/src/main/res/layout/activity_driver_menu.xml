@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#73B1AA"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="DMUber"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="105sp"
+        android:textStyle="bold" />
+
+    <!-- Button to Go to Menu -->
+    <Button
+        android:id="@+id/postbooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post A Booking"
+        android:textSize="18sp"
+        android:textColor="#73B1AA"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Button to Leave a Review -->
+    <Button
+        android:id="@+id/buttonLeaveReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leave a Review"
+        android:textSize="18sp"
+        android:textColor="#73B1AA"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/postbooking"
+        android:layout_marginTop="16dp"/>
+
+
+    <!-- Button to View Orders -->
+    <Button
+        android:id="@+id/buttonViewOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Orders"
+        android:textSize="18sp"
+        android:textColor="#73B1AA"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/buttonLeaveReview"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Button to Sign Out -->
+    <Button
+        android:id="@+id/buttonSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:textSize="18sp"
+        android:textColor="#73B1AA"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/buttonViewOrders"
+        android:layout_marginTop="16dp"/>
+</RelativeLayout>

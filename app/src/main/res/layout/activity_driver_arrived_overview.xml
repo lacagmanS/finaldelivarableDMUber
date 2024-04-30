@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver Has Arrived"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <LinearLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/textViewArrivalTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arrival Time: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewDriverName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Driver Name: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewCarModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Car Model: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewLicensePlate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="License Plate: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Number: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewSeatsAvailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seats Available: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description: "
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/textViewStudentEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Email: "
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+</RelativeLayout>

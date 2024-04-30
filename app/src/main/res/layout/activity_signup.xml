@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#73B1AA">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="THE CAFE"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="75sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="0dp"
+        android:text="Please Enter Your Details"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/editTextFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="50dp"
+        android:hint="Full Name"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_textbox"
+    android:textColor="#73B1AA"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:inputType="text"
+    android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/editTextEmailSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFullName"
+        android:layout_marginTop="16dp"
+        android:hint="Username"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_textbox"
+    android:textColor="#73B1AA"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:inputType="text"
+    android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmailSignIn"
+        android:layout_marginTop="16dp"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_textbox"
+    android:textColor="#73B1AA"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="16dp"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_textbox"
+    android:textColor="#73B1AA"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/editTextNewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#CCCCCC"
+        android:background="@drawable/rounded_textbox"
+    android:textColor="#73B1AA"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/editTextNewPassword"
+        android:layout_marginTop="32dp"
+        android:text="Register"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_button"
+    android:textColor="#73B1AA"
+    android:padding="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Already have an account? Sign In"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="italic"/>
+</RelativeLayout>

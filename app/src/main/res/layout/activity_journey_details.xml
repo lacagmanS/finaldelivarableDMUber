@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JourneyDetailsActivity">
+
+    <EditText
+        android:id="@+id/editTextStartTime"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below='@+id/editTextFinalDestination'
+        android:hint="Start Time"/>
+
+    <EditText
+        android:id="@+id/editTextStartDestination"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        android:hint="Start Destination"/>
+    <EditText
+        android:id="@+id/editTextFinalDestination"
+        android:layout_width="match_parent"
+        android:layout_below='@+id/editTextStartDestination'
+        android:layout_height="70dp"
+        android:hint="Final Destination"/>
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/editTextStartTime"
+        android:hint="Description" />
+
+    <EditText
+        android:id="@+id/editTextSeatsAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/editTextDescription"
+        android:inputType="number"
+        android:hint="Seats Available"/>
+
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/editTextSeatsAvailable"
+        android:hint="Price" />
+
+    <Button
+        android:id="@+id/buttonPostJourney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/editTextPrice"
+        android:layout_centerHorizontal="true"
+        android:text="Post Journey" />
+
+</RelativeLayout>

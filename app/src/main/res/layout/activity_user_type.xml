@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <Button
+        android:id="@+id/btnDriver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:padding="16dp"
+        android:text="I'm a Driver"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_button"/>
+
+    <Button
+        android:id="@+id/btnPassenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDriver"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:padding="16dp"
+        android:text="I'm a Passenger"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_button"/>
+
+</RelativeLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Display the details of the posted booking -->
+            <TextView
+                android:id="@+id/textViewStartTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Time: " />
+
+            <TextView
+                android:id="@+id/textViewStartDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Destination: " />
+
+            <TextView
+                android:id="@+id/textViewFinalDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Final Destination: " />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price: " />
+
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description: " />
+
+            <TextView
+                android:id="@+id/textViewSeatsAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seats Available: " />
+
+            <TextView
+                android:id="@+id/textViewDriverName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Name: " />
+
+            <TextView
+                android:id="@+id/textViewDriverPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver Phone: " />
+
+            <TextView
+                android:id="@+id/textViewDriverLicense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Driver License: " />
+
+            <TextView
+                android:id="@+id/textViewCarModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Car Model: " />
+
+            <!-- New button to view map -->
+            <Button
+                android:id="@+id/buttonViewRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Driver Ratings"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Button to book the journey -->
+            <Button
+                android:id="@+id/buttonBookNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book Now" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

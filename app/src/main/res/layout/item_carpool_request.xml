@@ -1,0 +1,37 @@
+<!-- item_carpool_request.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/customer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Name" />
+
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/accept_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accept" />
+
+        <Button
+            android:id="@+id/decline_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decline" />
+
+    </LinearLayout>
+</LinearLayout>

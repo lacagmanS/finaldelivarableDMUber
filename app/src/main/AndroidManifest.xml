@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DmuBER"
+        tools:targetApi="31">
+        <activity
+            android:name=".CarpoolRequest"
+            android:exported="false" />
+        <activity
+            android:name=".DriverMapsActivity"
+            android:exported="false" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCOJRQY_5DPqstZjGYK0xWNBOOJBC9M6MQ" />
+
+        <activity
+            android:name=".MapsViews"
+            android:exported="false"
+            android:label="@string/title_activity_maps_views" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BookRideActivity"
+            android:exported="true" />
+        <activity
+            android:name=".BookingDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DriverSignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StartDriverActivty"
+            android:exported="true" />
+        <activity
+            android:name=".UserTypeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminPanelActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DriverMenu"
+            android:exported="true" />
+        <activity
+            android:name=".JourneyDateActivity"
+            android:exported="true" />
+        <activity
+            android:name=".JourneyDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".JourneyListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DriverArrivedOverviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ReviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewRatingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddAdminActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminViewRatingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>
