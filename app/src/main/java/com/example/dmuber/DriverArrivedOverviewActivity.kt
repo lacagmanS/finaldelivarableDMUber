@@ -75,7 +75,7 @@ class DriverArrivedOverviewActivity : AppCompatActivity() {
                                                     findViewById<TextView>(R.id.textViewDescription).text =
                                                         "Description: ${details.description}"
                                                     findViewById<TextView>(R.id.textViewStudentEmail).text =
-                                                        "Student Email: ${details.studentEmail}"
+                                                        "Student Email: ${details.email}"
 
 
                                                 }

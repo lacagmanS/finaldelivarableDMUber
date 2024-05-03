@@ -18,7 +18,7 @@ class BookingAdapter(
         val textViewSeatsAvailable: TextView = itemView.findViewById(R.id.textViewSeatsAvailable)
         val textViewDriverName: TextView = itemView.findViewById(R.id.textViewDriverName)
         val textViewPrice: TextView = itemView.findViewById(R.id.textViewPrice)
-        val textViewId: TextView = itemView.findViewById(R.id.Id)
+//        val textViewId: TextView = itemView.findViewById(R.id.Id)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingViewHolder {
@@ -29,7 +29,7 @@ class BookingAdapter(
 
     override fun onBindViewHolder(holder: BookingViewHolder, position: Int) {
         val currentBooking = bookingList[position]
-        holder.textViewId.text = "Booking ID: ${currentBooking.bookingId}"
+//        holder.textViewId.text = "Booking ID: ${currentBooking.bookingId}"
 
         holder.textViewStartTime.text = "Start Time: ${currentBooking.startTime}"
         holder.textViewStartDestination.text = "Start Destination: ${currentBooking.startDestination}"

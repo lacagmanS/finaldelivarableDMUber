@@ -101,8 +101,8 @@ class DriverSignupActivity : AppCompatActivity() {
             return false
         }
 
-        if (licensePlate.isEmpty()) {
-            showToast("Please enter a license plate.")
+        if (licensePlate.isEmpty() || licensePlate.length < 2 || licensePlate.length > 20) {
+            showToast("Please enter a license plate between 1-20 characters.")
             return false
         }
 
@@ -113,8 +113,8 @@ class DriverSignupActivity : AppCompatActivity() {
         }
 
 
-        if (description.isEmpty()) {
-            showToast("Please enter a description.")
+        if (description.isEmpty() || description.length < 2 || description.length > 500) {
+            showToast("Please enter a description between 1-500 characters.")
             return false
         }
 
@@ -124,8 +124,8 @@ class DriverSignupActivity : AppCompatActivity() {
             return false
         }
 
-        if (carModel.isEmpty()) {
-            showToast("Please enter a car model.")
+        if (carModel.isEmpty() || carModel.length < 2 || carModel.length > 20) {
+            showToast("Please enter a car model description between 1-20 characters.")
             return false
         }
 

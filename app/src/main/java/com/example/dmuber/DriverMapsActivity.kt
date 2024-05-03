@@ -225,14 +225,9 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
 
     private fun startListeningForCarpoolRequests() {
-
-
-        Log.d("startListeningForCarpoolRequests", "startListeningForCarpoolRequests() called")
         val requestsRef = FirebaseDatabase.getInstance().getReference("CarpoolRequests")
-
         requestsRef.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-
                 val destinationSnapshot = snapshot.child("destination")
                 val latitude =
                     destinationSnapshot.child("latitude").getValue(Double::class.java)
@@ -240,8 +235,6 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     destinationSnapshot.child("longitude").getValue(Double::class.java)
                 if (latitude != null && longitude != null) {
                     val customerDestination = LatLng(latitude, longitude)
-
-                    // Get the customer's name from the database
                     val customerUid = snapshot.child("uid").getValue(String::class.java)
                     val customerLocationRef =
                         FirebaseDatabase.getInstance().getReference("CustomerLocationReference")
@@ -253,18 +246,12 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                                 val customerName =
                                     dataSnapshot.child("fullName").getValue(String::class.java)
                                 if (customerName != null) {
-                                    Log.d(
-                                        "Customerdestination",
-                                        "Updating destination to: $customerDestination"
-                                    )
                                     addMarkerForRequest(snapshot)
                                     val customerUid =
                                         snapshot.child("uid").getValue(String::class.java)
                                     val customerLocationRef = FirebaseDatabase.getInstance()
                                         .getReference("CustomerLocationReference")
                                         .child(customerUid ?: "")
-
-
                                     customerLocationRef.addValueEventListener(object :
                                         ValueEventListener {
                                         override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -272,19 +259,9 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                                                 .getValue(String::class.java)
                                             geoHash?.let { initiateGeoQuery(it, customerName) }
                                         }
-
                                         override fun onCancelled(databaseError: DatabaseError) {
-                                            // Handle error
                                         }
                                     })
-
-
-
-
-                                    Log.d(
-                                        "destination marker put",
-                                        "putttttttttttttttttttttttttttttttttttttttttttt"
-                                    )
                                 } else {
                                     // Handle case where customer name is not found
                                     Snackbar.make(
@@ -294,7 +271,6 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                                     ).show()
                                 }
                             }
-
                             override fun onCancelled(databaseError: DatabaseError) {
                                 // Handle error (if needed)
                                 Snackbar.make(
@@ -396,8 +372,6 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     private fun showLocationRequestAlert(customerName: String, customerLocation: LatLng, p0: Marker) {
-
-
         val carpoolRequestsRef = FirebaseDatabase.getInstance().getReference("CarpoolRequests")
         carpoolRequestsRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -406,143 +380,100 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     for (childSnapshot in dataSnapshot.children) {
                         val customerId = childSnapshot.child("uid").getValue(String::class.java)
                         val destination = childSnapshot.child("destination")
+                        val latitude = destination.child("latitude").getValue(Double::class.java)
+                        val longitude = destination.child("longitude").getValue(Double::class.java)
+                        Log.d("values", "customer id $customerId destination:$destination $latitude $longitude")
+
+                        if (customerId != null && latitude != null && longitude != null) {
+                            val customerLocationRef = FirebaseDatabase.getInstance()
+                                .getReference("CustomerLocationReference")
+                                .child(customerId)
+                                .child("l")
+                            customerLocationRef.addValueEventListener(object : ValueEventListener {
+                                override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                                    if (dataSnapshot.exists()) {
+                                        val locationList = dataSnapshot.getValue<List<Double>>()
+                                        if (locationList != null && locationList.size >= 2) {
+                                            val latitude = locationList[0]
+                                            val longitude = locationList[1]
+                                            val customerLatLng = LatLng(latitude, longitude)
 
 
-//                                val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
-//
-//                                if (currentUserId != null) {
-//                                    val locationArray = dataSnapshot.child(currentUserId).child("l")
-//                                        .getValue(Array<Double>::class.java)
-////                                    val driverLatitude = locationArray?.get(0) ?: 0.0
-////                                    val driverLongitude = locationArray?.get(1) ?: 0.0
+                                    val destinationslatlng = LatLng(latitude, longitude)
+                                    val currentLocation = LatLng(location!!.latitude, location!!.longitude)
+                                    val distance = calculateDistance(currentLocation, customerLatLng)
 
+                                    Log.d("DistanceCalculation", "Distance between driver and destination: $distance, current loc: $currentLocation, destination: $destinationslatlng")
 
-                                    val latitude =
-                                        destination.child("latitude").getValue(Double::class.java)
-                                    val longitude =
-                                        destination.child("longitude").getValue(Double::class.java)
-                                    Log.d(
-                                        "values",
-                                        "customer id $customerId destination:$destination $latitude $longitude"
-                                    )
-                                    if (customerId != null && latitude != null && longitude != null) {
-                                        val destinationslatlng = LatLng(latitude, longitude)
+                                    val alertDialogBuilder = AlertDialog.Builder(this@DriverMapsActivity)
+                                    alertDialogBuilder.apply {
+                                        setTitle("Carpool Request")
+                                        setMessage("Customer: $customerName is $distance meters away. Do you want to accept this carpool request?")
+                                        setPositiveButton("Accept") { dialog, which ->
+                                            if (customerId != null && latitude != null && longitude != null) {
+                                                val customerLocation = LatLng(latitude, longitude)
+                                                val currentTime = getCurrentTime()
+                                                Log.d("CarpoolRequest", "Current Time: $currentTime")
+                                                val destinationstring = "$latitude, $longitude"
+                                                val customerLocationString = "$customerLatLng"
+                                                Log.d("CarpoolRequest", "Customer Location: $customerLocationString")
 
+                                                val driverID = FirebaseAuth.getInstance().currentUser!!.uid
+                                                val acceptedRequestData = HashMap<String, Any>()
+                                                acceptedRequestData["customerid"] = customerId
+                                                acceptedRequestData["CustomerLocation"] = customerLocationString
+                                                acceptedRequestData["DriverLocation"] = currentLocation.toString()
+                                                acceptedRequestData["CustomerDestination"] = destinationstring
+                                                acceptedRequestData["DriverID"] = driverID
+                                                acceptedRequestData["Time"] = currentTime
 
-                                        val currentLocation = LatLng(location!!.latitude , location!!.longitude)
-
-                                        val distance =
-                                            calculateDistance(currentLocation, destinationslatlng)
-
-                                        Log.d("DistanceCalculation", "Distance between driver and destination: $distance , curerntlo: $currentLocation, destination: $destinationslatlng")
-
-
-
-
-                                        val alertDialogBuilder = AlertDialog.Builder(this@DriverMapsActivity)
-                                        alertDialogBuilder.apply {
-                                            setTitle("Carpool Request")
-                                            setMessage("$customerName is $distance meters away. Do you want to accept this carpool request?")
-                                            setPositiveButton("Accept") { dialog, which ->
-                                                val uid = customerId
-
-
-                                                if (uid != null && latitude != null && longitude != null) {
-
-                                                    val customerLocation = LatLng(latitude,longitude)
-
-                                                    val currentTime = getCurrentTime()
-                                                    Log.d("CarpoolRequest", "Current Time: $currentTime")
-
-                                                    val customerLocationString = "$latitude,$longitude"
-                                                    Log.d("CarpoolRequest", "Customer Location: $customerLocationString")
-
-                                                    val driverID = FirebaseAuth.getInstance().currentUser!!.uid
-                                                    Log.d("CarpoolRequest", "Driver ID: $driverID")
-
-                                                    val acceptedRequestData = HashMap<String, Any>()
-                                                    acceptedRequestData["customerid"] = uid
-                                                    Log.d("CarpoolRequest", "Customer ID: $uid")
-
-                                                    acceptedRequestData["CustomerLocation"] = customerLocationString
-                                                    Log.d("CarpoolRequest", "Customer Location: $customerLocationString")
-
-                                                    acceptedRequestData["DriverLocation"] = currentLocation
-                                                    Log.d("CarpoolRequest", "Driver Location: $currentLocation")
-
-                                                    acceptedRequestData["CustomerDestination"] = customerLocationString
-                                                    Log.d("CarpoolRequest", "Customer Destination: $customerLocationString")
-
-                                                    acceptedRequestData["DriverID"] = driverID
-                                                    Log.d("CarpoolRequest", "Driver ID: $driverID")
-
-                                                    acceptedRequestData["Time"] = currentTime
-                                                    Log.d("CarpoolRequest", "Time: $currentTime")
-
-                                                    val acceptedBookingsRef = FirebaseDatabase.getInstance().getReference("AcceptedCarpoolRequest").child(uid)
-                                                    acceptedBookingsRef.setValue(acceptedRequestData)
-                                                        .addOnSuccessListener {
-
-                                                            Snackbar.make(findViewById(android.R.id.content), "Booking accepted and added to AcceptedCarpoolRequest", Snackbar.LENGTH_LONG).show()
-                                                            monitorProximityToCustomer(customerLocation, customerId)
-                                                        }
-                                                        .addOnFailureListener { e ->
-                                                            Log.e("CarpoolRequest", "Error adding booking to AcceptedCarpoolRequest: ${e.message}", e)
-                                                            Snackbar.make(findViewById(android.R.id.content), "Failed to add booking: ${e.message}", Snackbar.LENGTH_LONG).show()
-                                                        }
-
-
-                                                }
-                                                else{
-                                                    Snackbar.make(findViewById(android.R.id.content), "values are null", Snackbar.LENGTH_LONG).show()
-
-                                                }
-
-
-
-
-
-
-
-                                            }
-                                            setNegativeButton("Decline") { dialog, which ->
-                                                Snackbar.make(findViewById(android.R.id.content), "declined", Snackbar.LENGTH_LONG).show()
-
+                                                val acceptedBookingsRef = FirebaseDatabase.getInstance().getReference("AcceptedCarpoolRequest").child(customerId)
+                                                acceptedBookingsRef.setValue(acceptedRequestData)
+                                                    .addOnSuccessListener {
+                                                        Snackbar.make(findViewById(android.R.id.content), "Booking accepted and added to AcceptedCarpoolRequest", Snackbar.LENGTH_LONG).show()
+                                                        monitorProximityToCustomer(customerLatLng, customerId)
+                                                    }
+                                                    .addOnFailureListener { e ->
+                                                        Log.e("CarpoolRequest", "Error adding booking to AcceptedCarpoolRequest: ${e.message}", e)
+                                                        Snackbar.make(findViewById(android.R.id.content), "Failed to add booking: ${e.message}", Snackbar.LENGTH_LONG).show()
+                                                    }
+                                            } else {
+                                                Snackbar.make(findViewById(android.R.id.content), "values are null", Snackbar.LENGTH_LONG).show()
                                             }
                                         }
-                                        val alertDialog = alertDialogBuilder.create()
-                                        alertDialog.show()
-
-
-                                    } else {
-                                        Snackbar.make(
-                                            findViewById(android.R.id.content),
-                                            "error3",
-                                            Snackbar.LENGTH_LONG
-                                        ).show()
-
+                                        setNegativeButton("Decline") { dialog, which ->
+                                            Snackbar.make(findViewById(android.R.id.content), "Declined", Snackbar.LENGTH_LONG).show()
+                                        }
                                     }
-//                                }
+                                    alertDialogBuilder.create().show()
+                                }else{
+                                            Log.d("daaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatt","daaaaaaaaaaaaaaaaaaaaatt")
+                                }}
+                                else{
+                                    Log.d("dont existtttttttttttttttttttt","dont existtttttttttttttt")
+                                }}
 
 
-                            }
+                                override fun onCancelled(error: DatabaseError) {
+                                    Snackbar.make(findViewById(android.R.id.content), "Firebase ValueEventListener onCancelled: ${error.message}", Snackbar.LENGTH_LONG).show()
+                                }
+                            })
+                        } else {
+                            Snackbar.make(findViewById(android.R.id.content), "Required values are null.", Snackbar.LENGTH_LONG).show()
+                        }
+                    }
+                } else {
+                    Snackbar.make(findViewById(android.R.id.content), "Current user ID is null.", Snackbar.LENGTH_LONG).show()
+                }
+            }
 
-
-
-
-
-
-
-                }}
             override fun onCancelled(databaseError: DatabaseError) {
-                Snackbar.make(findViewById(android.R.id.content), "error2", Snackbar.LENGTH_LONG).show()
-                Log.d("title " ,"${p0.title}")
-                p0.setTitle("")
-                Log.d("title  after" ,"${p0.title}")
-
-
-            }})
-
+                Snackbar.make(findViewById(android.R.id.content), "Database error: ${databaseError.message}", Snackbar.LENGTH_LONG).show()
+                Log.d("FirebaseError", "Error fetching carpool requests: ${databaseError.message}")
+                p0.title = ""
+            }
+        })
     }
 
 
@@ -654,14 +585,31 @@ class DriverMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         val longitude = destinationSnapshot.child("longitude").getValue(Double::class.java)
         if (latitude != null && longitude != null) {
             val customerDestination = LatLng(latitude, longitude)
-            val marker = mMap.addMarker(
-                MarkerOptions().position(customerDestination).title("Destination")
-            )
-            marker?.let {
-                markerMap[customerUid] = it
-            }
+
+            // Fetch customer name from the database using UID
+            val customersRef = FirebaseDatabase.getInstance().getReference("Customers")
+            customersRef.child(customerUid)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        val customerName = dataSnapshot.child("fullName").getValue(String::class.java)
+                        val markerTitle = "$customerName's Destination"
+
+                        // Add marker with customer name appended to the title
+                        val marker = mMap.addMarker(
+                            MarkerOptions().position(customerDestination).title(markerTitle)
+                        )
+                        marker?.let {
+                            markerMap[customerUid] = it
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        // Handle error
+                    }
+                })
         }
     }
+
 
     private fun removeMarkerForRequest(snapshot: DataSnapshot) {
         val customerUid = snapshot.key ?: return

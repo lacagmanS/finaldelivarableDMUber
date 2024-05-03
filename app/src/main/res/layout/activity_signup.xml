@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#73B1AA">
+    android:background="?attr/layoutBackgroundColor">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -12,9 +12,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="THE CAFE"
+        android:text="DMUBER"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="?attr/android:textColorPrimary"
         android:textSize="75sp"
         android:textStyle="bold" />
 

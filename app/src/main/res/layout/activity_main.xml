@@ -1,71 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="?attr/layoutBackgroundColor">
+    <ImageView
+        android:id="@+id/lightModeBtn"
+        android:layout_width="55dp"
+        android:layout_height="62dp"
+        android:background="?attr/darkmodebtn"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="?attr/darkmodeicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+<TextView
+    android:id="@+id/textViewTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="40dp"
+    android:fontFamily="sans-serif-condensed"
+    android:text="DMUber"
+    android:textAlignment="center"
+    android:textColor="?attr/android:textColorPrimary"
+    android:textSize="105sp"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="365dp"
+    android:layout_height="72dp"
+    android:text="Welcome To Customer Menu"
+    android:textAlignment="center"
+    android:textSize="22sp"
+    android:textStyle="bold"
+    android:textColor="?attr/android:textColorPrimary"
+    app:layout_constraintEnd_toEndOf="@+id/textViewTitle"
+    app:layout_constraintStart_toStartOf="@+id/textViewTitle"
+    app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#73B1AA"
-    android:padding="16dp">
+    android:layout_height="0dp"
+    android:background="?attr/bottomBackground"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="DMUber"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="105sp"
-        android:textStyle="bold" />
-
-    <!-- Button to Go to Menu -->
-    <Button
-        android:id="@+id/buttonGoToMenu"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find Bookings"
-        android:textSize="18sp"
-        android:textColor="#73B1AA"
-    android:background="@drawable/rounded_button"
-    android:layout_below="@id/textViewTitle"
-    android:layout_marginTop="16dp"/>
+        android:layout_height="match_parent"
+        android:gravity="center">
 
-    <!-- Button to Leave a Review -->
-    <Button
-        android:id="@+id/buttonLeaveReview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Leave a Review"
-        android:textSize="18sp"
-        android:textColor="#73B1AA"
-    android:background="@drawable/rounded_button"
-    android:layout_below="@id/buttonGoToMenu"
-    android:layout_marginTop="16dp"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/findBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/btnBackground">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="127dp"
+                        android:layout_height="125dp"
+                        android:layout_margin="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/circle_light_green" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView"
+                        app:layout_constraintHorizontal_bias="0.491"
+                        app:layout_constraintStart_toStartOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="@+id/imageView"
+                        app:srcCompat="@drawable/book" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Find A Booking"
+                    android:textAlignment="center"
+                    android:textColor="?attr/android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:fontFamily="sans-serif-condensed" />
 
 
-    <!-- Button to View Orders -->
-    <Button
-        android:id="@+id/buttonViewOrders"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Orders"
-        android:textSize="18sp"
-        android:textColor="#73B1AA"
-    android:background="@drawable/rounded_button"
-    android:layout_below="@id/buttonLeaveReview"
-    android:layout_marginTop="16dp"/>
+            </LinearLayout>
 
-    <!-- Button to Sign Out -->
-    <Button
-        android:id="@+id/buttonSignOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:textSize="18sp"
-        android:textColor="#73B1AA"
-    android:background="@drawable/rounded_button"
-    android:layout_below="@id/buttonViewOrders"
-    android:layout_marginTop="16dp"/>
-</RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/carpoolRequest"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/btnBackground">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="127dp"
+                        android:layout_height="125dp"
+                        android:layout_margin="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/circle_light_green" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                        app:layout_constraintHorizontal_bias="0.491"
+                        app:layout_constraintStart_toStartOf="@+id/imageView3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView3"
+                        app:srcCompat="@drawable/carpoolrequest" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Live carpool request"
+                    android:textAlignment="center"
+                    android:textColor="?attr/android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:fontFamily="sans-serif-condensed" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/buttonLeaveReview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/btnBackground">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="127dp"
+                        android:layout_height="125dp"
+                        android:layout_margin="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/circle_light_green" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                        app:layout_constraintHorizontal_bias="0.491"
+                        app:layout_constraintStart_toStartOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="@+id/imageView5"
+                        app:srcCompat="@drawable/history" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="View Ride History"
+                    android:textAlignment="center"
+                    android:textColor="?attr/android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:fontFamily="sans-serif-condensed" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/buttonSignOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/btnBackground">
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="127dp"
+                        android:layout_height="125dp"
+                        android:layout_margin="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/circle_light_green" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+                        app:layout_constraintHorizontal_bias="0.491"
+                        app:layout_constraintStart_toStartOf="@+id/imageView7"
+                        app:layout_constraintTop_toTopOf="@+id/imageView7"
+                        app:srcCompat="@drawable/signout" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Out"
+                    android:textAlignment="center"
+                    android:textColor="?attr/android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:fontFamily="sans-serif-condensed" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

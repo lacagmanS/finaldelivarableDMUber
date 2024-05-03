@@ -2,13 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/layoutBackgroundColor">
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Driver Has Arrived"
+        android:textColor="?attr/android:textColorPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -26,12 +28,14 @@
             android:id="@+id/textViewArrivalTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/android:textColorPrimary"
             android:text="Arrival Time: "
             android:padding="8dp"/>
 
         <TextView
             android:id="@+id/textViewDriverName"
             android:layout_width="match_parent"
+            android:textColor="?attr/android:textColorPrimary"
             android:layout_height="wrap_content"
             android:text="Driver Name: "
             android:padding="8dp"/>
@@ -39,12 +43,14 @@
         <TextView
             android:id="@+id/textViewCarModel"
             android:layout_width="match_parent"
+            android:textColor="?attr/android:textColorPrimary"
             android:layout_height="wrap_content"
             android:text="Car Model: "
             android:padding="8dp"/>
 
         <TextView
             android:id="@+id/textViewLicensePlate"
+            android:textColor="?attr/android:textColorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="License Plate: "
@@ -52,6 +58,7 @@
 
         <TextView
             android:id="@+id/textViewPhoneNumber"
+            android:textColor="?attr/android:textColorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phone Number: "
@@ -61,6 +68,7 @@
             android:id="@+id/textViewSeatsAvailable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/android:textColorPrimary"
             android:text="Seats Available: "
             android:padding="8dp"/>
 
@@ -68,12 +76,14 @@
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/android:textColorPrimary"
             android:text="Description: "
             android:padding="8dp"/>
 
         <TextView
             android:id="@+id/textViewStudentEmail"
             android:layout_width="match_parent"
+            android:textColor="?attr/android:textColorPrimary"
             android:layout_height="wrap_content"
             android:text="Student Email: "
             android:padding="8dp"/>

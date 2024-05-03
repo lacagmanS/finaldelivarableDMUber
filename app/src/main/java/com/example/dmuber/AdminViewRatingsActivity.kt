@@ -34,10 +34,9 @@ class AdminViewRatingsActivity : AppCompatActivity() {
                 reviewsRef.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for (driverSnapshot in dataSnapshot.children) {
-                            // Get the driver group ID (e.g., "9vO6N47S9cOHBQEMRuTrjzcZWhJ3")
+
                             val driverGroupId = driverSnapshot.key
 
-                            // Fetch the driver's ID (e.g., "9vO6N47S9cOHBQEMRuTrjzcZWhJ3")
                             driverGroupId?.let { driverId ->
                                 driversRef.child(driverId)
                                     .addListenerForSingleValueEvent(object : ValueEventListener {

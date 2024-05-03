@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DriverMapsActivity">
+    tools:context=".DriverMapsActivity"
+    android:background="?attr/layoutBackgroundColor">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -215,8 +215,9 @@ class MapsViews : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLongCl
             val requestsRef = FirebaseDatabase.getInstance().getReference("CarpoolRequests").child(key)
             requestsRef.removeValue()
         }
-        acceptedRequestsRef.removeEventListener(acceptedRequestsListener)
-
+        if (this::acceptedRequestsRef.isInitialized) {
+            acceptedRequestsRef.removeEventListener(acceptedRequestsListener)
+        }
 
     }
     private fun setupAcceptedRequestsListener() {

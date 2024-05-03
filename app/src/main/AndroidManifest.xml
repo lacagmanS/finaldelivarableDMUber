@@ -105,6 +105,15 @@
             android:name=".AdminViewRatingsActivity"
             android:exported="true" />
         <activity
+            android:name=".BookingHistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminManageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UserDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
     </application>

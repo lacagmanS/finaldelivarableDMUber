@@ -1,9 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.DmuBER" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="btnBackground">@drawable/btn</item>
+        <item name="bottomBackground">@drawable/bottom_background_light_green</item>
+        <item name="android:textColorPrimary">@color/btntextlightmode</item>
+        <item name="layoutBackgroundColor">@color/activitybackgroundlight</item>
+        <item name="darkmodebtn">?attr/android:textColorPrimary</item>
+        <item name="darkmodeicon">@drawable/lighticon</item>
+        <item name="buttonBackground">@drawable/button_light</item>
+        <item name="buttonTextColor">#87ED87</item>
+
     </style>
 
     <style name="Theme.DmuBER" parent="Base.Theme.DmuBER" />
+
 </resources>

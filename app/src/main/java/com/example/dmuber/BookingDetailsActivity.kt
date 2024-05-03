@@ -85,32 +85,23 @@ class BookingDetailsActivity : AppCompatActivity() {
     private fun bookNow() {
         val currentUser = auth.currentUser
         val customerId = currentUser?.uid ?: ""
-
-        // Get a reference to the database nodes
         val postedBookingsRef = database.getReference("PostedBookings").child(bookingId)
         val acceptedBookingsRef = database.getReference("AcceptedBookings").push()
 
-        // Retrieve the current seats available count
         postedBookingsRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val postedBooking = dataSnapshot.getValue(PostedBooking::class.java)
                 postedBooking?.let {
                     val currentSeatsAvailable = it.seatsAvailable
-
-
                     if (currentSeatsAvailable!! > 0) {
-                        // Create a new accepted booking entry
                         val acceptedBooking = mapOf(
                             "driverId" to it.driverId,
                             "bookingId" to bookingId,
                             "customerId" to customerId,
                             "seatsAvailable" to currentSeatsAvailable - 1
                         )
-
-                        // Update AcceptedBookings node
                         acceptedBookingsRef.setValue(acceptedBooking)
                             .addOnSuccessListener {
-                                // Update PostedBookings node with decreased seats available count
                                 postedBookingsRef.child("seatsAvailable").setValue(currentSeatsAvailable - 1)
                                 Toast.makeText(this@BookingDetailsActivity, "Booking successful", Toast.LENGTH_SHORT).show()
                             }
