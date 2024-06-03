@@ -85,10 +85,10 @@ DMuber is designed to facilitate convenient and eco-friendly carpooling. Whether
 
 ## Screenshots
 
-![customermenu](https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/6783b75e-e67d-4fe9-aec2-4dd422a63a63)
-![Screenshot_20240502_102542](https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/6f9eab54-503f-4479-8a91-6e8d74a0980a)
-![carpoolrequestalertcustomerside](https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/ef64a77f-83f1-42b1-b58b-71ad008fd489)
-![carpoolrequestcustomersideonlymap](https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/4f55f034-e17b-497b-90dc-95f49aa95540)
+<img src="https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/6783b75e-e67d-4fe9-aec2-4dd422a63a63" alt="Customer Menu" width="300">
+<img src="https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/6f9eab54-503f-4479-8a91-6e8d74a0980a" alt="Screenshot_20240502_102542" width="300">
+<img src="https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/ef64a77f-83f1-42b1-b58b-71ad008fd489" alt="Carpool Request Alert Customer Side" width="300">
+<img src="https://github.com/lacagmanS/finaldelivarableDMUber/assets/123553797/4f55f034-e17b-497b-90dc-95f49aa95540" alt="Carpool Request Customer Side Only Map" width="300">
 
 ## Technologies Used
 
